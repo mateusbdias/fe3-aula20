@@ -7,7 +7,7 @@ import "./styles.css";
 export default function Home() {
   const { addProductToCart } = useContext(CartContext);
   
-  const [products, setProducts] = useState(data);
+  const [products] = useState(data);
 
   return (
     <div>
@@ -17,7 +17,7 @@ export default function Home() {
           <div className="container">
             <h2>{product.name}</h2>
             <h3>R${product.price},00</h3>
-            <button onClick={addProductToCart}>Adicionar ao carrinho</button>
+            <button onClick={() => addProductToCart(product.id)}>Adicionar ao carrinho</button>
           </div>
           <img src={product.image} />
         </div>
