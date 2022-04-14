@@ -27,14 +27,14 @@ export default function CartProvider({ children }) {
         if(item.length > 0){
             if(item[0].qtd > 1) {
                 item[0].qtd = item[0].qtd - 1;
+                setProductsCart(copyProductsCart);
             } else if(item[0].qtd === 1) {
                 const arrayFilter = copyProductsCart.filter((product) => product.id !== id);
-                copyProductsCart = arrayFilter;
+                setProductsCart(arrayFilter);
             }
         } else {
             alert("O produto não está no carrinho");
         }
-        setProductsCart(copyProductsCart);
     }
     
     return (
