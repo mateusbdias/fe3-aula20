@@ -28,7 +28,8 @@ export default function CartProvider({ children }) {
             if(item[0].qtd > 1) {
                 item[0].qtd = item[0].qtd - 1;
             } else if(item[0].qtd === 1) {
-                copyProductsCart.pop(item[0]);
+                const arrayFilter = copyProductsCart.filter((product) => product.id !== id);
+                copyProductsCart = arrayFilter;
             }
         } else {
             alert("O produto não está no carrinho");
